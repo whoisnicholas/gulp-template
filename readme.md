@@ -1,7 +1,6 @@
 #Gulp Template
 
-###Dev
-Install & Run
+###Install & Run
 ```
 npm install
 gulp
