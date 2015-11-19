@@ -12,8 +12,6 @@ http://localhost:3000/
 - Autoprefixer
 - Browsersync
 
----
-
 Build:
 ```
 gulp build
