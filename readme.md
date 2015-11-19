@@ -19,5 +19,5 @@ gulp build
 - Minify, combine, and move js files to dist folder
 - Move assets to dist folder (does not include scss directory, only css directory as scss files are not needed for prod.)
 
-#####TODO
+####TODO
 - Add image compression package
