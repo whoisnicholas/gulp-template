@@ -1,0 +1,33 @@
+//
+// BREAK POINTS
+//
+
+@mixin breakpoint($point) {
+  @if $point == xlarge {
+    @media (min-width: 1800px) { @content; }
+  }
+  @else if $point == large {
+    @media (max-width: 1150px) { @content; }
+  }
+  @else if $point == medium {
+    @media (max-width: 960px) { @content; }
+  }
+  @else if $point == small {
+    @media (max-width: 767px)  { @content; }
+  }
+}
+
+@mixin vertical-breakpoint($point) {
+  @if $point == xlarge {
+    @media (max-height:1000px) { @content; }
+  }
+  @else if $point == large {
+    @media (maxmax-height:900px) { @content; }
+  }
+  @else if $point == medium {
+    @media (max-height:800px) { @content; }
+  }
+  @else if $point == small {
+    @media (max-height:400px)  { @content; }
+  }
+}
