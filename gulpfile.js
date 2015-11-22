@@ -5,7 +5,6 @@ var gulp 					= require('gulp'),
 		useref 				= require('gulp-useref'),
 		uglify 				= require('gulp-uglify'),
 		gulpif 				= require('gulp-if'),
-		fileinclude		= require('gulp-file-include'),
 		runSequence 	= require('run-sequence');
 
 
@@ -23,27 +22,14 @@ gulp.task('sass', function(){
 		.pipe(browserSync.stream());
 })
 
-
-gulp.task('fileinclude', function() {
-  return gulp.src(['./app/templates/*.html'])
-    .pipe(fileinclude({
-      prefix: '@@',
-      basepath: './app/templates/partials'
-    }))
-    .pipe(gulp.dest('./app'))
-    .pipe(browserSync.stream());
-});
-
-
 gulp.task('browserSync', function(){
 	 browserSync.init({
         server: "./app"
     });
 })
 
-gulp.task('watch', ['browserSync', 'sass', 'fileinclude'], function(){
+gulp.task('watch', ['browserSync', 'sass'], function(){
 	gulp.watch('app/assets/scss/**/*.scss', [sass]);	
-	gulp.watch('app/templates/**/*.html', [fileinclude]);
 	gulp.watch('app/*.html', browserSync.reload); 
   gulp.watch('app/assets/js/**/*.js', browserSync.reload);
 })
@@ -76,7 +62,7 @@ gulp.task('build', function (callback) {
 })
 
 gulp.task('default', function (callback) {
-	runSequence(['sass', 'fileinclude', 'browserSync', 'watch'],
+	runSequence(['sass', 'browserSync', 'watch'],
 		callback
 	)
 })
