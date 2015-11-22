@@ -5,7 +5,8 @@ var gulp 					= require('gulp'),
 		useref 				= require('gulp-useref'),
 		uglify 				= require('gulp-uglify'),
 		gulpif 				= require('gulp-if'),
-		fileinclude		= require('gulp-file-include'),
+		handlebars		= require('gulp-compile-handlebars'),
+		rename				= require('gulp-rename'),
 		runSequence 	= require('run-sequence');
 
 
@@ -24,15 +25,17 @@ gulp.task('sass', function(){
 })
 
 
-gulp.task('fileinclude', function() {
-  return gulp.src(['./app/templates/*.html'])
-    .pipe(fileinclude({
-      prefix: '@@',
-      basepath: './app/templates/partials'
-    }))
-    .pipe(gulp.dest('./app'))
-    .pipe(browserSync.stream());
-});
+gulp.task('hbs', function() {
+	var templateData,
+	options = {
+		batch: ['./app/templates/partials']
+	}
+
+	return gulp.src('./app/templates/*.hbs')
+		.pipe(handlebars(templateData, options))
+	  .pipe(rename({extname: '.html'}))
+	  .pipe(gulp.dest('app'))
+})
 
 
 gulp.task('browserSync', function(){
@@ -41,9 +44,9 @@ gulp.task('browserSync', function(){
     });
 })
 
-gulp.task('watch', ['browserSync', 'sass', 'fileinclude'], function(){
+gulp.task('watch', ['browserSync', 'sass'], function(){
 	gulp.watch('app/assets/scss/**/*.scss', [sass]);	
-	gulp.watch('app/templates/**/*.html', [fileinclude]);
+	gulp.watch('app/templates/**/*.hbs', ['hbs', browserSync.reload]);
 	gulp.watch('app/*.html', browserSync.reload); 
   gulp.watch('app/assets/js/**/*.js', browserSync.reload);
 })
@@ -76,7 +79,7 @@ gulp.task('build', function (callback) {
 })
 
 gulp.task('default', function (callback) {
-	runSequence(['sass', 'fileinclude', 'browserSync', 'watch'],
+	runSequence(['sass', 'hbs', 'browserSync', 'watch'],
 		callback
 	)
 })
