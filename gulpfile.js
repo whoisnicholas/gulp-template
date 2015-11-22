@@ -71,20 +71,21 @@ gulp.task('move', function() {
 })
 
 
-// Build Sequence
-// ---------------
-
-gulp.task('build', function (callback) {
-	runSequence(['sass', 'useref', 'move'],
-		callback
-	)
-})
-
 // Run Sequence
 // ---------------
 
 gulp.task('default', function (callback) {
 	runSequence(['sass', 'hbs', 'browserSync', 'watch'],
+		callback
+	)
+})
+
+
+// Build Sequence
+// ---------------
+
+gulp.task('build', function (callback) {
+	runSequence(['sass', 'hbs', 'useref', 'move'],
 		callback
 	)
 })
