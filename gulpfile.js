@@ -26,7 +26,9 @@ gulp.task('sass', function(){
 
 
 gulp.task('hbs', function() {
-	var templateData,
+	var templateData = {
+		name: gulp.src('./app/templates')
+	},
 	options = {
 		batch: ['./app/templates/partials']
 	}
@@ -69,7 +71,7 @@ gulp.task('move', function() {
 })
 
 
-// Build Sequences
+// Build Sequence
 // ---------------
 
 gulp.task('build', function (callback) {
@@ -77,6 +79,9 @@ gulp.task('build', function (callback) {
 		callback
 	)
 })
+
+// Run Sequence
+// ---------------
 
 gulp.task('default', function (callback) {
 	runSequence(['sass', 'hbs', 'browserSync', 'watch'],
