@@ -10,6 +10,7 @@ http://localhost:3000/
 - Sass
 - Autoprefixer
 - Browsersync
+- Handlebars
 
 ###Build
 ```
@@ -23,11 +24,13 @@ gulp build
 - browser-sync
 - gulp
 - gulp-autoprefixer
+- gulp-compile-handlebars
 - gulp-if
 - gulp-sass
 - gulp-uglify
 - gulp-useref
 - run-sequence
+
 
 ####TODO
 - Add image compression package
