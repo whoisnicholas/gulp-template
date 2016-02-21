@@ -6,7 +6,7 @@ var gulp 					= require('gulp'),
 		uglify 				= require('gulp-uglify'),
 		gulpif 				= require('gulp-if'),
 		runSequence 	= require('run-sequence'),
-		plumber				= require('plumber');
+		plumber				= require('gulp-plumber');
 
 
 var onError = function (err) {
