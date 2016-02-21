@@ -5,12 +5,22 @@ var gulp 					= require('gulp'),
 		useref 				= require('gulp-useref'),
 		uglify 				= require('gulp-uglify'),
 		gulpif 				= require('gulp-if'),
-		runSequence 	= require('run-sequence');
+		runSequence 	= require('run-sequence'),
+		plumber				= require('plumber');
+
+
+var onError = function (err) {
+  gutil.beep();
+  console.log(err);
+};
 
 
 
 gulp.task('sass', function(){
 	return gulp.src('app/assets/scss/main.scss')
+		.pipe(plumber({
+      errorHandler: onError
+    }))
 		.pipe(sass({
 			outputStyle: 'compressed'
 		}))
@@ -29,7 +39,7 @@ gulp.task('browserSync', function(){
 })
 
 gulp.task('watch', ['browserSync', 'sass'], function(){
-	gulp.watch('app/assets/scss/**/*.scss', ['sass']);	
+	gulp.watch('app/assets/scss/**/*.scss', ['sass']);
 	gulp.watch('app/*.html', browserSync.reload);
   gulp.watch('app/assets/js/**/*.js', browserSync.reload);
 })
