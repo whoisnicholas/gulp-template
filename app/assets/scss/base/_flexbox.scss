@@ -1,0 +1,38 @@
+/*
+
+-------------------------------------------------------------
+
+FLEXBOX
+
+*/
+
+.flex {
+	display: flex;
+  margin: 0 $gutter / -2;
+
+	&.row { flex-flow: row wrap; }
+
+	&.column { flex-direction: column; }
+
+  &.flex-reverse { flex-direction: row-reverse; }
+}
+
+
+// align-self properties
+.flex-start { align-self: flex-start; }
+
+.flex-end { align-self: flex-end; }
+
+
+/*
+  Create column groups
+  $col-groups & $gutter set in _variables.scss
+*/
+@each $col in $col-groups {
+	.col-#{$col} {
+		flex-basis: calc((100% - #{$gutter}) * 1 / #{$col});
+
+
+		&:not(:first-child) { margin-left: $gutter; }
+	}
+}

@@ -8,13 +8,13 @@ var gulp 					= require('gulp'),
 		runSequence 	= require('run-sequence'),
 		plumber				= require('gulp-plumber');
 
-
 var onError = function (err) {
-  gutil.beep();
   console.log(err);
 };
 
 
+// Watch
+// ---------------
 
 gulp.task('sass', function(){
 	return gulp.src('app/assets/scss/main.scss')

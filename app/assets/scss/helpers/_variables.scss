@@ -1,4 +1,4 @@
-/* 
+/*
 
 -------------------------------------------------------------
 
@@ -20,9 +20,13 @@ $bold    : 700;
 $primary-font-family : 'Helvetica', sans-serif;
 $primary-font-weight : $regular;
 $primary-font-size   : 16px;
-$primary-font-color  : #757575;
-$primary-link-color  : #757575;
-$primary-line-height : 36px;
+$primary-font-color  : $black;
+$primary-link-color  : $black;
+$primary-line-height : 1.5;
+
+// Columns
+$col-groups : 2 3 4;
+$gutter     : 30px;
 
 // Transitions
 $default-transition-property : all;
@@ -31,4 +35,4 @@ $default-transition-function : false;
 $default-transition-delay    : false;
 
 // Easing
-$easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+$easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
