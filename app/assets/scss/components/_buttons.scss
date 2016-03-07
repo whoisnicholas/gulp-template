@@ -12,12 +12,12 @@ BUTTONS
   line-height: $btn-height;
   padding: 0 $btn-side-padding;
   border-radius: $btn-radius;
-  background-color: $btn-bg;
+  background-color: $primary-color;
   color: $white;
   text-decoration: none;
   transition: background-color 0.3s $easeOutQuint;
 
   &:hover {
-    background-color: darken($btn-bg, 5%);
+    background-color: darken($primary-color, 5%);
   }
 }
