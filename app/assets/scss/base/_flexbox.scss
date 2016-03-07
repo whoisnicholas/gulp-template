@@ -9,7 +9,13 @@ FLEXBOX
 // flexbox container properties
 .flex {
 	display: flex;
-  margin: 0 $col-gutter / -2;
+	margin: 0 $col-gutter / -2;
+
+	&--no-gutter {
+		margin: 0;
+
+		> * { padding: 0; }
+	}
 
 	&.row {
 		flex-flow: row wrap;
@@ -22,6 +28,17 @@ FLEXBOX
 
 		&--reverse { flex-direction: column-reverse; }
 	}
+
+	// justify content --> horizontal alignment
+	&.justify-start { justify-content: flex-start; }
+
+	&.justify-end { justify-content: flex-end; }
+
+	&.justify-center { justify-content: center; }
+
+	&.space-between { justify-content: space-between; }
+
+	&.space-around { justify-content: space-around; }
 }
 
 
@@ -41,7 +58,6 @@ FLEXBOX
 		@extend %borderbox;
 		flex-basis: percentage(1 / $col);
 		padding: 0 $col-gutter / 2;
-
 	}
 
 	// create column offsets if $col-offsets = true
@@ -54,3 +70,10 @@ FLEXBOX
 	}
 
 } // end column creation
+
+// auto-width -> Use for 1/3 2/3 layout
+.col-auto {
+	flex-basis: 0;
+	flex-grow: 1;
+	padding: 0 15px;
+}

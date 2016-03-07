@@ -4,22 +4,22 @@ Author: Brett Smith
 Author URI: http://thebrettsmith.com
 */
 
-/* Helpers */
+// Helpers
 @import "helpers/variables";
 @import "helpers/mixins";
 
-/* Base */
+// Base
 @import "base/typography";
 @import "base/global";
 @import "base/flexbox";
 
-/* Components */
+// Components
 @import "components/buttons";
 
-/* Layout */
+// Layout
 @import "layout/header";
 @import "layout/navigation";
 @import "layout/footer";
 
-/* Sections */
+// Sections
 @import "sections/hero";
