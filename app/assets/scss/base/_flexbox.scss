@@ -6,15 +6,22 @@ FLEXBOX
 
 */
 
+// flexbox container properties
 .flex {
 	display: flex;
-  margin: 0 $gutter / -2;
+  margin: 0 $col-gutter / -2;
 
-	&.row { flex-flow: row wrap; }
+	&.row {
+		flex-flow: row wrap;
 
-	&.column { flex-direction: column; }
+		&--reverse { flex-direction: row-reverse; }
+	}
 
-  &.flex-reverse { flex-direction: row-reverse; }
+	&.column {
+		flex-direction: column;
+
+		&--reverse { flex-direction: column-reverse; }
+	}
 }
 
 
@@ -25,14 +32,25 @@ FLEXBOX
 
 
 /*
-  Create column groups
-  $col-groups & $gutter set in _variables.scss
+  create column groups
+  $col-groups, $col-offsets, & $col-gutter set in _variables.scss
 */
 @each $col in $col-groups {
+
 	.col-#{$col} {
-		flex-basis: calc((100% - #{$gutter}) * 1 / #{$col});
+		@extend %borderbox;
+		flex-basis: percentage(1 / $col);
+		padding: 0 $col-gutter / 2;
 
-
-		&:not(:first-child) { margin-left: $gutter; }
 	}
-}
+
+	// create column offsets if $col-offsets = true
+	@if $col-offsets {
+
+		.col-offset-#{$col} {
+			margin-left: percentage(1 / $col);
+		}
+
+	}
+
+} // end column creation

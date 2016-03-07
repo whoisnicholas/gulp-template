@@ -9,12 +9,15 @@ VARIABLES
 // Colors
 $black   : #000000;
 $white   : #ffffff;
+$blue    : #2196F3;
+
 
 // Font weights
 $light 	 : 100;
 $regular : 300;
 $medium  : 500;
 $bold    : 700;
+
 
 // Primary Font
 $primary-font-family : 'Helvetica', sans-serif;
@@ -24,15 +27,26 @@ $primary-font-color  : $black;
 $primary-link-color  : $black;
 $primary-line-height : 1.5;
 
+
 // Columns
-$col-groups : 2 3 4;
-$gutter     : 30px;
+$col-groups   : 2 3 4;
+$col-gutter   : 30px;
+$col-offsets  : false;
+
+
+// Buttons
+$btn-height       : 46px;
+$btn-bg           : $blue;
+$btn-radius       : 25px;
+$btn-side-padding : 40px;
+
 
 // Transitions
 $default-transition-property : all;
 $default-transition-duration : 1s;
-$default-transition-function : false;
-$default-transition-delay    : false;
+$default-transition-function : null;
+$default-transition-delay    : null;
+
 
 // Easing
 $easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
