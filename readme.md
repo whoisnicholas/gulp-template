@@ -24,6 +24,7 @@ gulp build
 - gulp
 - gulp-autoprefixer
 - gulp-if
+- gulp-plumber
 - gulp-sass
 - gulp-uglify
 - gulp-useref
