@@ -11,10 +11,14 @@ FLEXBOX
 	display: flex;
 	margin: 0 $col-gutter / -2;
 
-	&--no-gutter {
-		margin: 0;
+	&--gutter {
+		margin: 0 $col-gutter / -2;
 
-		> * { padding: 0; }
+		@each $col in $col-groups {
+
+			> .col-#{$col} { padding: 0 $col-gutter / 2; }
+
+		}
 	}
 
 	&.row {
@@ -57,7 +61,6 @@ FLEXBOX
 	.col-#{$col} {
 		@extend %borderbox;
 		flex-basis: percentage(1 / $col);
-		padding: 0 $col-gutter / 2;
 
 		// if even number of columns, double width at medium breakpoint
 		@if $col % 2 == 0 {
@@ -82,5 +85,5 @@ FLEXBOX
 .col-auto {
 	flex-basis: 0;
 	flex-grow: 1;
-	padding: 0 15px;
+	//padding: 0 15px;
 }
