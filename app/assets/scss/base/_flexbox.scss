@@ -11,7 +11,8 @@ FLEXBOX
 	display: flex;
 	margin: 0 $col-gutter / -2;
 
-	&--gutter {
+	&-gutter {
+		@extend .flex;
 		margin: 0 $col-gutter / -2;
 
 		@each $col in $col-groups {
