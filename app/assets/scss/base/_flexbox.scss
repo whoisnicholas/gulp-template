@@ -9,21 +9,10 @@ FLEXBOX
 // flexbox container properties
 .flex {
 	display: flex;
-	margin: 0 $col-gutter / -2;
-
-	&-gutter {
-		@extend .flex;
-		margin: 0 $col-gutter / -2;
-
-		@each $col in $col-groups {
-
-			> .col-#{$col} { padding: 0 $col-gutter / 2; }
-
-		}
-	}
 
 	&.row {
 		flex-flow: row wrap;
+		margin: 0 -15px;
 
 		&--reverse { flex-direction: row-reverse; }
 	}
@@ -62,6 +51,7 @@ FLEXBOX
 	.col-#{$col} {
 		@extend %borderbox;
 		flex-basis: percentage(1 / $col);
+		padding: 0 15px;
 
 		// if even number of columns, double width at medium breakpoint
 		@if $col % 2 == 0 {
@@ -70,16 +60,6 @@ FLEXBOX
 
 		@include breakpoint(small) { flex-basis: 100%; }
 	}
-
-	// create column offsets if $col-offsets = true
-	@if $col-offsets {
-
-		.col-offset-#{$col} {
-			margin-left: percentage(1 / $col);
-		}
-
-	}
-
 }
 
 // auto-width -> Use for 1/3 - 2/3 layout
