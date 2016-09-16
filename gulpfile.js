@@ -25,7 +25,7 @@ gulp.task('sass', function(){
 			outputStyle: 'compressed'
 		}))
 		.pipe(autoprefixer({
-      browsers: ['last 2 versions'],
+      browsers: ['last 2 versions', 'Firefox >= 3'],
       cascade: false
     }))
 		.pipe(gulp.dest('app/assets/css'))
