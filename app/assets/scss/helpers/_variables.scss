@@ -11,10 +11,6 @@ $black   : #000000;
 $white   : #ffffff;
 $blue    : #2196F3;
 
-// Functional Colors
-$primary-color   : $blue;
-$secondary-color : null;
-
 
 // Font weights
 $light 	 : 100;
@@ -24,7 +20,7 @@ $bold    : 700;
 
 
 // Primary Font
-$primary-font-family : 'open sans', 'helvetica', sans-serif;
+$primary-font-family : 'open sans', 'helvetica neue', sans-serif;
 $primary-font-weight : $regular;
 $primary-font-size   : 16px;
 $primary-font-color  : $black;
@@ -36,33 +32,6 @@ $primary-line-height : 1.5;
 $col-groups  : 2 3 4;
 $col-gutter  : 30px;
 $col-offsets : false;
-
-
-// Buttons
-$btn-height       : 46px;
-$btn-radius       : 2px;
-$btn-side-padding : 40px;
-
-
-// breakpoints
-$breakpoint-xlarge : 1800px;
-$breakpoint-large  : 1200px;
-$breakpoint-medium : 1000px;
-$breakpoint-small  : 767px;
-
-
-// container widths
-$container        : 1200px;
-$container-large  : 1170px;
-$container-medium : 960px;
-$container-small  : 90%;
-
-
-// Transitions
-$default-transition-property : all;
-$default-transition-duration : 1s;
-$default-transition-function : null;
-$default-transition-delay    : null;
 
 
 // Easing

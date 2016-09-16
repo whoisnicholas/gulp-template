@@ -16,17 +16,17 @@ body.body-modal-open { overflow:hidden; }
 
 .container {
 	margin:auto;
-	width: $container;
+	width: 1200px;
 	position:relative;
 
 	@include breakpoint(large) {
-		width:$container-large;
+		width: 1000px;
 	}
 	@include breakpoint(medium) {
-		width:$container-medium;
+		width: 750px;
 	}
 	@include breakpoint(small) {
-		width:$container-small;
+		width: 90%;
 	}
 }
 
